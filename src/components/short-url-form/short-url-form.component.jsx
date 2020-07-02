@@ -14,7 +14,8 @@ import {
     MainContainer
 } from './short-url-form.styles';
 
-const BASE_URL = "http://localhost:8003/r";
+const BASE_URL_REQUEST = "https://www.fankle.xyz/r";
+const BASE_URL_SHORT = "fankle.xyz/r";
 
 const ShortUrlForm = () => {
     const [inputValues, setInputValues] = useState({
@@ -38,7 +39,7 @@ const ShortUrlForm = () => {
         event.preventDefault();
 
         try {
-            const rawResponse = await fetch(`${BASE_URL}/url`, {
+            const rawResponse = await fetch(`${BASE_URL_REQUEST}/url`, {
                 method: 'POST',
                 headers: {
                   'Accept': 'application/json',
@@ -49,7 +50,7 @@ const ShortUrlForm = () => {
             const result = await rawResponse.json();
 
             if(result.success){
-                setInputValues({...inputValues, shortUrl: `${BASE_URL}/${result.slug}`});
+                setInputValues({...inputValues, shortUrl: `${BASE_URL_SHORT}/${result.slug}`});
                 setError({hasError: false, errorMessage: ""});
             } else {
                 throw Error(result.message);
