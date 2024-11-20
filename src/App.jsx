@@ -1,6 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import { ToastProvider } from 'react-toast-notifications'
+import { Switch, Route } from 'react-router-dom';
 
 import Header from '../src/components/header/header.component';
 import Homepage from '../src/pages/homepage/homepage.component';
@@ -10,7 +9,6 @@ import ErrorPage from './pages/errorpage/errorpage.component';
 
 function App() {
   return (
-    <ToastProvider>
       <div>
         <Header/>
         <Switch>
@@ -18,7 +16,6 @@ function App() {
           <Route exact path='/error' component={ErrorPage}/>
         </Switch>
       </div>
-    </ToastProvider>
   );
 }
 

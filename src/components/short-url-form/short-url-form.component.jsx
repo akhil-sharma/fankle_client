@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-import { useToasts } from 'react-toast-notifications'
+// import { useToasts } from 'react-toast-notifications'
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
@@ -13,9 +13,10 @@ import {
     ShortUrlContainer,
     MainContainer
 } from './short-url-form.styles';
+import toast from 'react-hot-toast';
 
-const BASE_URL_REQUEST = "https://www.fankle.xyz/r";
-const BASE_URL_SHORT = "fankle.xyz/r";
+const BASE_URL_REQUEST = "https://www.syncly.xyz/r";
+const BASE_URL_SHORT = "syncly.xyz/r";
 
 const ShortUrlForm = () => {
     const [inputValues, setInputValues] = useState({
@@ -29,7 +30,7 @@ const ShortUrlForm = () => {
         errorMessage: ""
     });
 
-    const { addToast } = useToasts()
+    // const { addToast } = useToasts()
     
 
     const {baseUrl, suggestedSlug, shortUrl} = inputValues;
@@ -69,8 +70,8 @@ const ShortUrlForm = () => {
     }
 
     const handleCopy = () => {
-        addToast("Link Copied!", 
-        {appearance :'success', autoDismiss: true})
+        toast("Link Copied!", 
+        {position : 'top-center', duration: 3000})
     }
 
     let displayOutput;
