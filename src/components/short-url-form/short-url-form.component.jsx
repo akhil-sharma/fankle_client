@@ -15,8 +15,8 @@ import {
 } from './short-url-form.styles';
 import toast from 'react-hot-toast';
 
-const BASE_URL_REQUEST = "https://www.syncly.xyz/r";
-const BASE_URL_SHORT = "syncly.xyz/r";
+const BASE_URL_REQUEST = "http://localhost:3001/r";
+const BASE_URL_SHORT = "localhost:3001/r";
 
 const ShortUrlForm = () => {
     const [inputValues, setInputValues] = useState({
